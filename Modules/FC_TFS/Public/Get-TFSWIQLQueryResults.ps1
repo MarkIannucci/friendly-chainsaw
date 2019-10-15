@@ -26,11 +26,7 @@ param([Parameter(ValueFromPipeline)] $pipelineInput
 
 $outputObj = New-Object PSObject
 $outputObj | Add-Member -Type NoteProperty -Name repository -Value $pipelineInput.Repository
-$repositoryID = $pipelineInput.repository.id
 
-if ([String]::IsNullOrEmpty($repositoryID)){
-    Write-Log "Please pass a repositoryID" Error -ErrorAction Stop
-}
 if ([String]::IsNullOrEmpty($query)){
     Write-Log "Please pass a query" Error -ErrorAction Stop
 }
